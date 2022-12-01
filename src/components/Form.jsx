@@ -13,7 +13,7 @@ class Form extends Component {
       cardImage,
       cardRare,
       cardTrunfo,
-      hasTrunfo,
+      //   hasTrunfo,
       isSaveButtonDisabled,
       onInputChange,
       onSaveButtonClick,
