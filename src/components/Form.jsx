@@ -25,7 +25,7 @@ class Form extends Component {
           Nome da carta
           <input
             type="text"
-            name={ cardName }
+            name="cardName"
             value={ cardName }
             id="name"
             data-testid="name-input"
@@ -36,7 +36,7 @@ class Form extends Component {
           {' '}
           Descrição
           <textarea
-            name={ cardDescription }
+            name="cardDescription"
             value={ cardDescription }
             id="description"
             cols="30"
@@ -47,10 +47,10 @@ class Form extends Component {
         </label>
         <label className={ styles.displayFlex } htmlFor="attr1">
           {' '}
-          Atributo 1
+          Passe
           <input
             type="number"
-            name={ cardAttr1 }
+            name="cardAttr1"
             value={ cardAttr1 }
             id="attr1"
             data-testid="attr1-input"
@@ -60,10 +60,10 @@ class Form extends Component {
         </label>
         <label className={ styles.displayFlex } htmlFor="attr2">
           {' '}
-          Atributo 2
+          Drible
           <input
             type="number"
-            name={ cardAttr2 }
+            name="cardAttr2"
             value={ cardAttr2 }
             id="attr2"
             data-testid="attr2-input"
@@ -73,10 +73,10 @@ class Form extends Component {
         </label>
         <label className={ styles.displayFlex } htmlFor="attr3">
           {' '}
-          Atributo 3
+          Chute
           <input
             type="number"
-            name={ cardAttr3 }
+            name="cardAttr3"
             value={ cardAttr3 }
             id="attr3"
             data-testid="attr3-input"
@@ -89,7 +89,7 @@ class Form extends Component {
           Imagem
           <input
             type="text"
-            name={ cardImage }
+            name="cardImage"
             value={ cardImage }
             id="image-input"
             data-testid="image-input"
@@ -101,7 +101,7 @@ class Form extends Component {
           {' '}
           Raridade
           <select
-            name={ cardRare }
+            name="cardRare"
             value={ cardRare }
             id="select-input"
             data-testid="rare-input"
@@ -117,7 +117,7 @@ class Form extends Component {
           Super Trunfo
           <input
             type="checkbox"
-            name=""
+            name="cardTrunfo"
             checked={ cardTrunfo }
             id="trunfo-input"
             data-testid="trunfo-input"
