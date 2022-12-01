@@ -1,0 +1,10 @@
+.displayFlex {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2%;
+}
+
+.flex {
+  display: flex;
+}
+
