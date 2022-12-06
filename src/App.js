@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Card from './components/Card';
 import Form from './components/Form';
+import styles from './App.module.css';
 
 class App extends Component {
   state = {
@@ -25,7 +26,7 @@ class App extends Component {
   render() {
     const { ...state } = this.state;
     return (
-      <div>
+      <div className={ styles.container }>
         <Form
           { ...state }
           onInputChange={ this.onInputChange }
