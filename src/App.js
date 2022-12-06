@@ -13,7 +13,7 @@ class App extends Component {
     cardImage: '',
     cardRare: '',
     cardTrunfo: false,
-    // onSaveButtonClick: false,
+    savedCards: [],
     isSaveButtonDisabled: true,
   };
 
@@ -36,10 +36,6 @@ class App extends Component {
       const attr1 = parseInt(cardAttr1, 10);
       const attr2 = parseInt(cardAttr2, 10);
       const attr3 = parseInt(cardAttr3, 10);
-      // const nameCard = cardName;
-      // const description = cardDescription;
-      // const image = cardImage;
-      // const rare = cardRare;
 
       const max = 210;
       const maxAttr = 90;
@@ -59,13 +55,49 @@ class App extends Component {
     });
   };
 
-  // onSaveButtonClick = (e) => {
-  //   e.preventDefault();
-  //   const { cardAttr1, cardAttr2, cardAttr3 } = this.state;
-  // };
+  onSaveButtonClick = (e) => {
+    e.preventDefault();
+    const {
+      cardName,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      savedCards,
+      cardImage,
+      cardRare,
+      cardTrunfo,
+    } = this.state;
+
+    const newCard = {
+      cardName,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      savedCards,
+      cardImage,
+      cardRare,
+      cardTrunfo,
+    };
+
+    this.setState({
+      savedCards: [...savedCards, newCard],
+      isSaveButtonDisabled: true,
+      cardName: '',
+      cardDescription: '',
+      cardAttr1: '0',
+      cardAttr2: '0',
+      cardAttr3: '0',
+      cardImage: '',
+      cardRare: '',
+      cardTrunfo: false,
+    });
+  };
 
   render() {
     const { ...state } = this.state;
+    const { savedCards } = this.state;
     return (
       <div className={ styles.container }>
         <Form
@@ -77,6 +109,11 @@ class App extends Component {
           { ...state }
           onInputChange={ this.onInputChange }
         />
+        <div>
+          {savedCards.map((card) => (
+            <Card { ...card } key={ card.cardName } />
+          ))}
+        </div>
       </div>
     );
   }
