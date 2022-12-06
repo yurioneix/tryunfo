@@ -49,12 +49,14 @@ class Form extends Component {
           {' '}
           Passe
           <input
+            min="0"
             type="number"
             name="cardAttr1"
             value={ cardAttr1 }
             id="attr1"
             data-testid="attr1-input"
             onChange={ onInputChange }
+            placeholder="Máximo 90 pontos"
           />
 
         </label>
@@ -62,12 +64,14 @@ class Form extends Component {
           {' '}
           Drible
           <input
+            min="0"
             type="number"
             name="cardAttr2"
             value={ cardAttr2 }
             id="attr2"
             data-testid="attr2-input"
             onChange={ onInputChange }
+            placeholder="Máximo 90 pontos"
           />
 
         </label>
@@ -75,12 +79,14 @@ class Form extends Component {
           {' '}
           Chute
           <input
+            min="0"
             type="number"
             name="cardAttr3"
             value={ cardAttr3 }
             id="attr3"
             data-testid="attr3-input"
             onChange={ onInputChange }
+            placeholder="Máximo 90 pontos"
           />
 
         </label>
