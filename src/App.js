@@ -13,6 +13,7 @@ class App extends Component {
     cardImage: '',
     cardRare: '',
     cardTrunfo: false,
+    hasTrunfo: false,
     savedCards: [],
     isSaveButtonDisabled: true,
   };
@@ -81,6 +82,12 @@ class App extends Component {
       cardTrunfo,
     };
 
+    if (cardTrunfo) {
+      this.setState({
+        cardTrunfo: true,
+        hasTrunfo: true,
+      });
+    }
     this.setState({
       savedCards: [...savedCards, newCard],
       isSaveButtonDisabled: true,

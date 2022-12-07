@@ -13,7 +13,7 @@ class Form extends Component {
       cardImage,
       cardRare,
       cardTrunfo,
-      //   hasTrunfo,
+      hasTrunfo,
       isSaveButtonDisabled,
       onInputChange,
       onSaveButtonClick,
@@ -121,14 +121,14 @@ class Form extends Component {
         <label className={ styles.flex } htmlFor="trunfo-input">
           {' '}
           Super Trunfo
-          <input
+          { !hasTrunfo ? (<input
             type="checkbox"
             name="cardTrunfo"
             checked={ cardTrunfo }
             id="trunfo-input"
             data-testid="trunfo-input"
             onChange={ onInputChange }
-          />
+          />) : (<p>Você já tem um Super Trunfo em seu baralho</p>)}
         </label>
         <button
           type="submit"
