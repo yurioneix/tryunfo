@@ -19,7 +19,7 @@ class Form extends Component {
       onSaveButtonClick,
     } = this.props;
     return (
-      <form>
+      <form className={ styles.container }>
         <label className={ styles.displayFlex } htmlFor="name">
           {' '}
           Nome da carta

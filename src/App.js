@@ -106,22 +106,24 @@ class App extends Component {
     const { ...state } = this.state;
     const { savedCards } = this.state;
     return (
-      <div className={ styles.container }>
-        <Form
-          { ...state }
-          onInputChange={ this.onInputChange }
-          onSaveButtonClick={ this.onSaveButtonClick }
-        />
-        <Card
-          { ...state }
-          onInputChange={ this.onInputChange }
-        />
-        <div>
+      <>
+        <div className={ styles.container }>
+          <Form
+            { ...state }
+            onInputChange={ this.onInputChange }
+            onSaveButtonClick={ this.onSaveButtonClick }
+          />
+          <Card
+            { ...state }
+            onInputChange={ this.onInputChange }
+          />
+        </div>
+        <div className={ styles.container }>
           {savedCards.map((card) => (
             <Card { ...card } key={ card.cardName } />
           ))}
         </div>
-      </div>
+      </>
     );
   }
 }
