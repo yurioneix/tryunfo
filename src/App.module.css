@@ -7,5 +7,18 @@ body {
   border-radius: 10px;
   display: flex;
   justify-content: space-around;
+  margin-bottom: 5%;
   padding: 5%;
+}
+
+.filter {
+  border: 1px solid black;
+  border-radius: 10px;
+  display: flex;
+  margin-bottom: 5%;
+  padding: 5%;
+}
+
+.inputFilter {
+  margin-left: 10px;
 }

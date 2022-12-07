@@ -15,6 +15,7 @@ class App extends Component {
     cardTrunfo: false,
     hasTrunfo: false,
     savedCards: [],
+    savedCardFiltered: [],
     isSaveButtonDisabled: true,
   };
 
@@ -68,6 +69,7 @@ class App extends Component {
       cardImage,
       cardRare,
       cardTrunfo,
+      savedCardFiltered,
     } = this.state;
 
     const newCard = {
@@ -90,6 +92,7 @@ class App extends Component {
     }
     this.setState({
       savedCards: [...savedCards, newCard],
+      savedCardFiltered: [...savedCardFiltered, newCard],
       isSaveButtonDisabled: true,
       cardName: '',
       cardDescription: '',
@@ -114,9 +117,23 @@ class App extends Component {
     });
   };
 
+  filterCardName = ({ target }) => {
+    const inputValue = target.value;
+    const { savedCards } = this.state;
+    console.log(savedCards);
+    const filteredCards = savedCards
+      .filter((card) => card.cardName.includes(inputValue));
+    console.log(filteredCards);
+
+    this.setState({
+      savedCardFiltered: filteredCards,
+    });
+    console.log(savedCards);
+  };
+
   render() {
     const { ...state } = this.state;
-    const { savedCards } = this.state;
+    const { savedCardFiltered } = this.state;
     return (
       <>
         <div className={ styles.container }>
@@ -130,8 +147,21 @@ class App extends Component {
             onInputChange={ this.onInputChange }
           />
         </div>
+        <div className={ styles.filter }>
+          <label htmlFor="filter-card">
+            Filtre sua busca
+            <input
+              type="text"
+              data-testid="name-filter"
+              id="filter-card"
+              placeholder="Filtre por atributos"
+              className={ styles.inputFilter }
+              onChange={ this.filterCardName }
+            />
+          </label>
+        </div>
         <div className={ styles.container }>
-          {savedCards.map((card) => (
+          {savedCardFiltered.map((card) => (
             <>
               <Card { ...card } key={ card.cardName } />
               <button
@@ -139,6 +169,7 @@ class App extends Component {
                 type="button"
                 id={ card.cardName }
                 onClick={ () => this.removeCard(card.cardName) }
+                key={ card.cardName }
               >
                 Excluir
               </button>
