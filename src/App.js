@@ -113,6 +113,7 @@ class App extends Component {
     console.log(filterCard);
     this.setState({
       savedCards: filterCard,
+      savedCardFiltered: filterCard,
       hasTrunfo: isTrunfo,
     });
   };
@@ -120,15 +121,12 @@ class App extends Component {
   filterCardName = ({ target }) => {
     const inputValue = target.value;
     const { savedCards } = this.state;
-    console.log(savedCards);
     const filteredCards = savedCards
       .filter((card) => card.cardName.includes(inputValue));
-    console.log(filteredCards);
 
     this.setState({
       savedCardFiltered: filteredCards,
     });
-    console.log(savedCards);
   };
 
   render() {
@@ -162,18 +160,17 @@ class App extends Component {
         </div>
         <div className={ styles.container }>
           {savedCardFiltered.map((card) => (
-            <>
+            <div key={ card.cardName }>
               <Card { ...card } key={ card.cardName } />
               <button
                 data-testid="delete-button"
                 type="button"
                 id={ card.cardName }
                 onClick={ () => this.removeCard(card.cardName) }
-                key={ card.cardName }
               >
                 Excluir
               </button>
-            </>
+            </div>
           ))}
         </div>
       </>
