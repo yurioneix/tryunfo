@@ -147,12 +147,16 @@ class App extends Component {
     const filteredCards = savedCards
       .filter((card) => (inputCheckbox ? card.cardTrunfo === true : card));
 
-    this.setState({
-      savedCardFiltered: filteredCards,
-      superTrunfoFilterChecked: true,
-    }, this.setState({
-      superTrunfoFilterChecked: false,
-    }));
+    if (inputCheckbox) {
+      this.setState({
+        savedCardFiltered: filteredCards,
+        superTrunfoFilterChecked: true,
+      });
+    } else {
+      this.setState({
+        superTrunfoFilterChecked: false,
+      });
+    }
   };
 
   render() {
@@ -174,57 +178,32 @@ class App extends Component {
         <div className={ styles.filter }>
           <label htmlFor="filter-card">
             Filtre sua busca
-            {
-              !superTrunfoFilterChecked
-                ? (
-                  <input
-                    type="text"
-                    data-testid="name-filter"
-                    id="filter-card"
-                    placeholder="Filtre por atributos"
-                    className={ styles.inputFilter }
-                    onChange={ this.filterCardName }
-                  />)
-                : (
-                  <input
-                    type="text"
-                    data-testid="name-filter"
-                    id="filter-card"
-                    placeholder="Filtre por atributos"
-                    className={ styles.inputFilter }
-                    onChange={ this.filterCardName }
-                    disabled={ superTrunfoFilterChecked }
-                  />)
-            }
+
+            <input
+              type="text"
+              data-testid="name-filter"
+              id="filter-card"
+              placeholder="Filtre por atributos"
+              className={ styles.inputFilter }
+              onChange={ this.filterCardName }
+              disabled={ superTrunfoFilterChecked }
+            />
+
           </label>
           <label htmlFor="rare-select">
             Raridade:
-            {
-              !superTrunfoFilterChecked
-                ? (
-                  <select
-                    id="rare-select"
-                    data-testid="rare-filter"
-                    onChange={ this.filterRare }
-                  >
-                    <option value="todas">todas</option>
-                    <option value="normal">normal</option>
-                    <option value="raro">raro</option>
-                    <option value="muito raro">muito raro</option>
-                  </select>)
-                : (
-                  <select
-                    id="rare-select"
-                    data-testid="rare-filter"
-                    onChange={ this.filterRare }
-                    disabled={ superTrunfoFilterChecked }
-                  >
-                    <option value="todas">todas</option>
-                    <option value="normal">normal</option>
-                    <option value="raro">raro</option>
-                    <option value="muito raro">muito raro</option>
-                  </select>)
-            }
+            <select
+              id="rare-select"
+              data-testid="rare-filter"
+              onChange={ this.filterRare }
+              disabled={ superTrunfoFilterChecked }
+            >
+              <option value="todas">todas</option>
+              <option value="normal">normal</option>
+              <option value="raro">raro</option>
+              <option value="muito raro">muito raro</option>
+            </select>
+
           </label>
           <label htmlFor="checkbox">
             {' '}
