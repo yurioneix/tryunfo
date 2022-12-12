@@ -17,6 +17,7 @@ class App extends Component {
     savedCards: [],
     savedCardFiltered: [],
     isSaveButtonDisabled: true,
+    superTrunfoFilterChecked: false,
   };
 
   onInputChange = ({ target }) => {
@@ -140,6 +141,18 @@ class App extends Component {
     });
   };
 
+  filterTrunfo = ({ target }) => {
+    const inputCheckbox = target.checked;
+    const { savedCards } = this.state;
+    const filteredCards = savedCards
+      .filter((card) => (inputCheckbox ? card.cardTrunfo === true : card));
+
+    this.setState({
+      savedCardFiltered: filteredCards,
+      superTrunfoFilterChecked: true,
+    });
+  };
+
   render() {
     const { ...state } = this.state;
     const { savedCardFiltered } = this.state;
@@ -180,6 +193,16 @@ class App extends Component {
               <option value="raro">raro</option>
               <option value="muito raro">muito raro</option>
             </select>
+          </label>
+          <label htmlFor="checkbox">
+            {' '}
+            Super Trunfo:
+            <input
+              type="checkbox"
+              data-testid="trunfo-filter"
+              id="checkbox"
+              onChange={ this.filterTrunfo }
+            />
           </label>
         </div>
         <div className={ styles.container }>
