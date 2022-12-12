@@ -129,6 +129,17 @@ class App extends Component {
     });
   };
 
+  filterRare = ({ target }) => {
+    const selectValue = target.value;
+    const { savedCards } = this.state;
+    const filteredCards = savedCards
+      .filter((card) => (selectValue === 'todas' ? card : card.cardRare === selectValue));
+
+    this.setState({
+      savedCardFiltered: filteredCards,
+    });
+  };
+
   render() {
     const { ...state } = this.state;
     const { savedCardFiltered } = this.state;
@@ -156,6 +167,19 @@ class App extends Component {
               className={ styles.inputFilter }
               onChange={ this.filterCardName }
             />
+          </label>
+          <label htmlFor="rare-select">
+            Raridade:
+            <select
+              id="rare-select"
+              data-testid="rare-filter"
+              onChange={ this.filterRare }
+            >
+              <option value="todas">todas</option>
+              <option value="normal">normal</option>
+              <option value="raro">raro</option>
+              <option value="muito raro">muito raro</option>
+            </select>
           </label>
         </div>
         <div className={ styles.container }>
