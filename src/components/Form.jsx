@@ -20,6 +20,7 @@ class Form extends Component {
     } = this.props;
     return (
       <form className={ styles.container }>
+        <h1>Adicione uma nova carta</h1>
         <label className={ styles.displayFlex } htmlFor="name">
           {' '}
           Nome da carta
@@ -39,8 +40,8 @@ class Form extends Component {
             name="cardDescription"
             value={ cardDescription }
             id="description"
-            cols="30"
-            rows="10"
+            cols="10"
+            rows="5"
             data-testid="description-input"
             onChange={ onInputChange }
           />

@@ -1,6 +1,11 @@
 .container {
-  border: 1px solid black;
+  background: #036b52;
+  border: 1px solid white;
   border-radius: 10px;
+  box-shadow: 11px 14px 24px 0 rgba(0, 0, 0, 0.75);
+  font-family: Inknut Antiqua , serif;
+  font-style: italic;
+  font-weight: 800;
   padding: 2%;
 }
 

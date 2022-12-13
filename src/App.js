@@ -177,7 +177,7 @@ class App extends Component {
         </div>
         <div className={ styles.filter }>
           <label htmlFor="filter-card">
-            Filtre sua busca
+            Filtre sua busca:
 
             <input
               type="text"
@@ -197,6 +197,7 @@ class App extends Component {
               data-testid="rare-filter"
               onChange={ this.filterRare }
               disabled={ superTrunfoFilterChecked }
+              className={ styles.inputFilter }
             >
               <option value="todas">todas</option>
               <option value="normal">normal</option>
@@ -213,6 +214,7 @@ class App extends Component {
               data-testid="trunfo-filter"
               id="checkbox"
               onChange={ this.filterTrunfo }
+              className={ styles.inputFilter }
             />
           </label>
         </div>
