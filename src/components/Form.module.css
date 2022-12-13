@@ -3,6 +3,7 @@
   border: 1px solid white;
   border-radius: 10px;
   box-shadow: 11px 14px 24px 0 rgba(0, 0, 0, 0.75);
+  color: white;
   font-family: Inknut Antiqua , serif;
   font-style: italic;
   font-weight: 800;
@@ -17,5 +18,17 @@
 
 .flex {
   display: flex;
+}
+
+.btn {
+  background-color: #f8faf8;
+  border: 1px solid #7c0c29;
+  border-radius: 14px;
+  color: #0a0a0a;
+  cursor: pointer;
+  font-family: Inknut Antiqua , serif;
+  font-size: 14px;
+  padding: 12px 23px;
+  text-shadow: 0 1px 0 #2f6627;
 }
 

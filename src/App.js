@@ -163,7 +163,7 @@ class App extends Component {
     const { ...state } = this.state;
     const { savedCardFiltered, superTrunfoFilterChecked } = this.state;
     return (
-      <>
+      <div>
         <div className={ styles.container }>
           <Form
             { ...state }
@@ -220,9 +220,10 @@ class App extends Component {
         </div>
         <div className={ styles.container }>
           {savedCardFiltered.map((card) => (
-            <div key={ card.cardName }>
+            <div key={ card.cardName } className={ styles.cardContainer }>
               <Card { ...card } key={ card.cardName } />
               <button
+                className={ styles.btn }
                 data-testid="delete-button"
                 type="button"
                 id={ card.cardName }
@@ -233,7 +234,7 @@ class App extends Component {
             </div>
           ))}
         </div>
-      </>
+      </div>
     );
   }
 }
